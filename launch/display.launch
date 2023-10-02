@@ -16,9 +16,10 @@
     <param if = "$(arg use_xacro)" name = "robot_description" command = "$(find xacro)/xacro $(arg file)" />
     <param unless = "$(arg use_xacro)" name = "robot_description" textfile = "$(arg file)" />
 
-    <!-- Run the robot_state_publisher. -->
-    <node pkg = "robot_state_publisher" type = "robot_state_publisher" name = "robot_state_publisher" />
-
+    <!-- make robot_state_publisher optional -->
+    <arg name = "use_robot_state_publisher" default = "true"/>
+    <node if = "$(arg use_robot_state_publisher)" pkg = "robot_state_publisher" type = "robot_state_publisher" name = "robot_state_publisher" />
+    
     <!-- Run RVIZ with a configuration file. If RVIZ is closed, close everything. -->
     <node pkg = "rviz" type = "rviz" name = "rviz" args = "-d $(arg rviz_config_file)" required = "true"/> 
 
