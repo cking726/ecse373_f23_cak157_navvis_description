@@ -27,8 +27,8 @@
     <arg name = "use_joint_state_publisher_gui" default="true"/>
     <node if = "$(arg use_joint_state_publisher_gui)" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui"/>
     <!-- initial positions if joints state gui is not started -->
-    <node unless = "$(arg use_joint_state_publisher_gui)" pkg="tf2_ros" type="static_transform_publisher" name="wheel_left_joint" args="0 0.365 0.2 -1.57 0 0 base wheel_left"/>
-    <node unless = "$(arg use_joint_state_publisher_gui)" pkg="tf2_ros" type="static_transform_publisher" name="wheel_right_joint" args="0 -0.365 0.2 -1.57 0 0 base wheel_right"/>
-    <node unless = "$(arg use_joint_state_publisher_gui)" pkg="tf2_ros" type="static_transform_publisher" name="wheel_center_joint" args="0 -0.365 0.2 -1.57 0 0 base wheel_center"/>
+    <node unless = "$(arg use_joint_state_publisher_gui)" pkg="tf2_ros" type="static_transform_publisher" name="wheel_left_joint" args="0 0.365 0.2 0 0 -1.57 base wheel_left"/>
+    <node unless = "$(arg use_joint_state_publisher_gui)" pkg="tf2_ros" type="static_transform_publisher" name="wheel_right_joint" args="0 -0.365 0.2 0 0 -1.57 base wheel_right"/>
+    <node unless = "$(arg use_joint_state_publisher_gui)" pkg="tf2_ros" type="static_transform_publisher" name="wheel_center_joint" args="0 -0.365 0.2 0 0 -1.57 base wheel_center"/>
 
 </launch> 
